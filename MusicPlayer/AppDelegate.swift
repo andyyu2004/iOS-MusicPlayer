@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "MainVC") as! UITabBarController
+        tabBarController.selectedIndex = 1
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
         

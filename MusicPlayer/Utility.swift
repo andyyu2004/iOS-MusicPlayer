@@ -9,6 +9,7 @@
 import Foundation
 import MediaPlayer
 
+/// Useful helper functions
 class Utility {
     
     static func createSongData(mediaFile: MPMediaItem) -> SongData {

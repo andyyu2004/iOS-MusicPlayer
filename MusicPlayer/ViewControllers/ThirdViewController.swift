@@ -21,6 +21,9 @@ class ThirdViewController: BaseMusicPlayerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Third View Contoller")
+        
+        // Open on load as this view controller is incomplete
+        openQueueVC()
     }
     
     func openQueueVC() {
