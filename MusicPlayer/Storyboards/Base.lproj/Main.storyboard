@@ -12,7 +12,7 @@
         <!--PlayerScene-->
         <scene sceneID="JnG-CK-UxA">
             <objects>
-                <viewControllerPlaceholder storyboardName="PlayerScene" id="Qoq-ou-Ejd" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="PlayerScene" storyboardName="PlayerScene" id="Qoq-ou-Ejd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="MSJ-ES-ocV"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8d8-HA-czt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,21 +22,24 @@
         <!--HomeScene-->
         <scene sceneID="XZ0-r9-Y7g">
             <objects>
-                <viewControllerPlaceholder storyboardName="HomeScene" id="Pav-af-cXb" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="HomeScene" storyboardName="HomeScene" id="Pav-af-cXb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="BbW-A0-KI7"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXt-wA-CUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1" y="511"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--MainVC-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                <tabBarController storyboardIdentifier="MainVC" title="MainVC" id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.25506882437142853" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Pav-af-cXb" kind="relationship" relationship="viewControllers" id="U65-3n-Ven"/>
@@ -51,7 +54,7 @@
         <!--MusicScene-->
         <scene sceneID="eTF-Dw-Ugb">
             <objects>
-                <viewControllerPlaceholder storyboardName="MusicScene" id="Y1u-5d-y01" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="MusicScene" storyboardName="MusicScene" id="Y1u-5d-y01" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="F9R-B5-xQs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJ1-RD-Bxy" userLabel="First Responder" sceneMemberID="firstResponder"/>

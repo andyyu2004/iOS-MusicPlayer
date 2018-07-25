@@ -13,9 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let _ = MusicPlayer.shared
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "MainVC") as! UITabBarController
+        self.window?.rootViewController = tabBarController
+        self.window?.makeKeyAndVisible()
+        
+        tabBarController.viewControllers?.forEach { let _ = $0.view }
+        
+        //UIApplication.shared.beginReceivingRemoteControlEvents()
+
         return true
     }
 
@@ -31,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

@@ -12,9 +12,9 @@ import AVFoundation
 
 // Add moveable queue
 // Add scrubbing and proper time display.
-var musicPlayer: MusicPlayer!
+//var musicPlayer: MusicPlayer!
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AudioControlling {
+class SecondViewController: UIViewController {//, UITableViewDelegate, UITableViewDataSource, AudioControlling {
     
     //Outlets
     @IBOutlet weak var playPauseButton: UIBarButtonItem!
@@ -22,6 +22,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var tableView: UITableView!
     
+    /*
     //Class Variables
     var currentItem: MPMediaItem?
     var songDictionary: [Character: [MPMediaItem]] = [:]
@@ -74,7 +75,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 self.songDictionary = self.createDictionary()
                 self.sortedDictionaryKeys = self.sortHashLast(keys: Array(self.songDictionary.keys))
-                musicPlayer = MusicPlayer(library: self.allSongItems)
+                //musicPlayer = MusicPlayer(library: self.allSongItems)
                 
 //                DispatchQueue.main.async {
 //                    self.tableView?.rowHeight = UITableViewAutomaticDimension;
@@ -361,6 +362,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+ */
 }
 
 
