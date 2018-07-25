@@ -10,6 +10,7 @@ import Foundation
 import MediaPlayer
 import UIKit
 
+/// The Base Class for all view controllers that want to control the audio player
 class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
 
     @IBOutlet weak var playPauseButton: UIBarButtonItem?
@@ -53,7 +54,6 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
     
     // Updating statuses
     
-    
     func setToolbarVisibility() {
         controlToolbar?.isHidden = mp.currentItem == nil
     }
@@ -66,6 +66,7 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
+    /// Sets the colour of shuffle icon to indicate state
     func setShuffleIconColour() {
         switch mp.shuffleMode {
         case .songs:
@@ -75,6 +76,7 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
+    /// Updates all the necessary data when the audio player changes state
     func updateNowPlayingInfo() {
         setPlayPauseIcon()
         setToolbarVisibility()
@@ -85,13 +87,7 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
         let image = nowPlaying.artwork
         let artwork = MPMediaItemArtwork(boundsSize: image.size) { size in return image }
         
-        var playbackRate: NSNumber {
-            if mp.isPlaying {
-                return 1
-            } else {
-                return 0
-            }
-        }
+        let playbackRate = mp.isPlaying ? 1 : 0
         
         nowPlayingInfoCenter.nowPlayingInfo = [
             MPMediaItemPropertyTitle: nowPlaying.title,
@@ -104,7 +100,7 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
         ]
     }
     
-    // Player Functions
+    // Player Controlling Functions
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         playNext()

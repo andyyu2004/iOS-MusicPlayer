@@ -40,6 +40,7 @@ class MusicViewController: BaseMusicPlayerViewController {
             selector: #selector(audioRouteChangedListener(_:)),
             name: NSNotification.Name.AVAudioSessionRouteChange,
             object: nil)
+        
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(shuffleAll(_:)), for: .valueChanged)
         refreshControl.tintColor = UIColor.white
@@ -56,6 +57,7 @@ class MusicViewController: BaseMusicPlayerViewController {
         //tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tableView.rowHeight*2, right: 0)
     }
     
+    /// Detects when headphones are pulled out and pauses playback
     @objc dynamic private func audioRouteChangedListener(_ notification: NSNotification) {
         let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
         
@@ -92,12 +94,14 @@ class MusicViewController: BaseMusicPlayerViewController {
         cc.changePlaybackPositionCommand.isEnabled = true
     }
     
+    /// Using the refresh pulldown action as a shuffle all command
     @objc func shuffleAll(_ refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
         mp.shuffleAll()
         updateNowPlayingInfo()
     }
     
+    /// Handles long press touch action on a table view cell
     @objc func longPressListener(_ gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state == UIGestureRecognizerState.began {
             let touchPoint = gestureRecognizer.location(in: self.tableView)
@@ -107,6 +111,7 @@ class MusicViewController: BaseMusicPlayerViewController {
         }
     }
     
+    /// Opens the additional settings view controller when a song is held
     func openPopUpVC(indexPath: IndexPath){
         let popUpVC = UIStoryboard(name: "MusicScene", bundle: nil).instantiateViewController(withIdentifier: "PopUpVC") as! PopUpViewController
         self.addChildViewController(popUpVC)
@@ -127,8 +132,6 @@ class MusicViewController: BaseMusicPlayerViewController {
         super.updateNowPlayingInfo()
         toolbarSongDisplay.text = mp.currentItem?.title ?? ""
     }
-    
-    
     
     deinit {
         cc.playCommand.removeTarget(self, action: #selector(setPlayPause))

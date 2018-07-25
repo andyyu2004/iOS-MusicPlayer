@@ -8,6 +8,7 @@
 import UIKit
 import MediaPlayer
 
+/// The base class for all classes that are collection views to inherit from
 class BaseCollectionViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
