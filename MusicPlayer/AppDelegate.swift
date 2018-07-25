@@ -10,19 +10,24 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+	
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Instantiate the instance of the music playing singleton
         let _ = MusicPlayer.shared
         
+        // Manually Create Entry Point
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "MainVC") as! UITabBarController
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
         
+        // Load all view controllers on tab bar on app open
         tabBarController.viewControllers?.forEach { let _ = $0.view }
         
         //UIApplication.shared.beginReceivingRemoteControlEvents()
