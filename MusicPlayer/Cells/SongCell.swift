@@ -20,4 +20,20 @@ class SongCell: UITableViewCell {
         MusicArtistLabel.text = data.artist
     }
     
+    override var showsReorderControl: Bool {
+        get {
+            return true // short-circuit to on
+        }
+        set { }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        if editing == false {
+            return // ignore any attempts to turn it off
+        }
+        
+        super.setEditing(editing, animated: animated)
+    }
+
+    
 }
