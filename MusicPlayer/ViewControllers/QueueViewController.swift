@@ -24,14 +24,23 @@ class QueueViewController: BaseMusicPlayerViewController, UITableViewDelegate, U
         tableView.delegate = self
         tableView.dataSource = self
         
+        //let horizontalSwipe = UIPanGestureRecognizer(target: self, action: #selector(swipeHandler(_:)))
+        //tableView.addGestureRecognizer(horizontalSwipe)
+        
         configureSettings()
         
         showAnimate()
     }
     
+    @objc func swipeHandler(_ gr: UIPanGestureRecognizer) {
+        print("Horizontal Swipe Detected")
+        
+        
+    }
+    
     func configureSettings() {
+        //tableView.isEditing = false
         tableView.backgroundColor = UIColor.darkGray
-        tableView.isEditing = true
         tableView.allowsSelectionDuringEditing = true
         tableView.separatorStyle = .none
         tableView.sectionIndexColor = UIColor.white
@@ -58,6 +67,7 @@ class QueueViewController: BaseMusicPlayerViewController, UITableViewDelegate, U
     
     @objc override func playNext() {
         super.playNext()
+        //
     }
     
     @objc override func setShuffleMode() {
@@ -97,14 +107,18 @@ class QueueViewController: BaseMusicPlayerViewController, UITableViewDelegate, U
             mediaFile = mp.currentItem!
         case 2:
             mediaFile = mp.manualQueue[indexPath.row]
-        default:
+        case 3:
             mediaFile = mp.autoQueue[indexPath.row]
+        default:
+            break
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "QueueCell", for: indexPath) as! SongCell
     
         let musicData = Utility.createSongData(mediaFile: mediaFile)
         cell.setData(data: musicData)
         cell.selectionStyle = .gray
+        cell.showsReorderControl = true
+        cell.isEditing = true
         return cell
     }
     
@@ -119,40 +133,58 @@ class QueueViewController: BaseMusicPlayerViewController, UITableViewDelegate, U
             return nil
         }
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
         case 0:
             mp.historyTapped(index: indexPath.row) // For song history tapped
-        case 3: //Tapping on upnext not enabled, maybe enable?
+        case 3: //Tapping on up next not enabled, maybe enable?
             mp.queueTapped(indexPath: indexPath)
         default:
             break
         }
         tableView.reloadData()
     }
+
+//    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+//        return false
+//    }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return UITableViewCellEditingStyle.none
-    }
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+//        return UITableViewCellEditingStyle.none	
+//    }
+//
+//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+//        return false
+//    }
     
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        switch indexPath.section {
-        case 3: //2 as well if u want to switch manual queue
-            return true
-        default:
-            return false
+    /// Disallow movement over sections
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        if sourceIndexPath.section != proposedDestinationIndexPath.section {
+            var row = 0
+            if proposedDestinationIndexPath.section > sourceIndexPath.section {
+                row = self.tableView(tableView, numberOfRowsInSection: sourceIndexPath.section) - 1
+            }
+            return IndexPath(row: row, section: sourceIndexPath.section)
         }
-    }
-    
-    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
+        return proposedDestinationIndexPath
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedCell = mp.autoQueue.remove(at: sourceIndexPath.row)
-        mp.autoQueue.insert(movedCell, at: destinationIndexPath.row)
+        // sourceIP === destIP
+        switch sourceIndexPath.section {
+        case 0:
+            let movedCell = mp.songHistory.remove(at: sourceIndexPath.row)
+            mp.songHistory.insert(movedCell, at: destinationIndexPath.row)
+        case 2:
+            let movedCell = mp.manualQueue.remove(at: sourceIndexPath.row)
+            mp.manualQueue.insert(movedCell, at: destinationIndexPath.row)
+        case 3:
+            let movedCell = mp.autoQueue.remove(at: sourceIndexPath.row)
+            mp.autoQueue.insert(movedCell, at: destinationIndexPath.row)
+        default: break
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
