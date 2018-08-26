@@ -11,6 +11,7 @@ import MediaPlayer
 
 class AlbumViewController: BaseCollectionViewController {
     
+    var artist: String!
     var albums: [MPMediaItemCollection] = []
 
     override func viewDidLoad() {
@@ -20,7 +21,22 @@ class AlbumViewController: BaseCollectionViewController {
         collectionView.delegate = self
         
         navigationItem.title = "Albums"
+        
+        albums = retrieveAlbumInfo(artist: artist)
+    }
     
+    func retrieveAlbumInfo(artist: String) -> [MPMediaItemCollection] {
+        let query = MPMediaQuery.albums()
+        query.addFilterPredicate(MPMediaPropertyPredicate(value: artist, forProperty: MPMediaItemPropertyAlbumArtist, comparisonType: .equalTo))
+        let album = query.collections!
+        return album
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToAlbumPlayerSegue" {
+            let albumPlayerScene = segue.destination as! AlbumPlayerViewController
+            albumPlayerScene.albumTitle = sender as! String
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,5 +60,10 @@ extension AlbumViewController: UICollectionViewDataSource {
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let album = albums[indexPath.row].representativeItem?.albumTitle ?? ""
+        
+        performSegue(withIdentifier: "ToAlbumPlayerSegue", sender: album)
+    }
     
 }

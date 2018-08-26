@@ -126,6 +126,10 @@ class MusicPlayer {
         playSong(song: songHistory[index])
         if currentStatus { play() }
     }
+    
+    func postStateDidChangeNotification() {
+        NotificationCenter.default.post(name: .MusicPlayerStateDidChange, object: nil, userInfo: [:])
+    }
 
     // Player Functions
     
@@ -155,14 +159,17 @@ class MusicPlayer {
     
     func play(){
         audioPlayer?.play()
+        postStateDidChangeNotification()
     }
     
     func pause(){
         audioPlayer?.pause()
+        postStateDidChangeNotification()
     }
     
     func stop(){
         audioPlayer?.stop()
+        postStateDidChangeNotification()
     }
     
     func replay() {
@@ -170,8 +177,13 @@ class MusicPlayer {
         audioPlayer?.pause()
         audioPlayer?.currentTime = 0
         if currentState! {
-            audioPlayer?.play()
+            play()
         }
+    }
+    
+    func setPlaybackPosition(time: TimeInterval) {
+        audioPlayer?.currentTime = time
+        play()
     }
     
     // Tries to play next MPMediaItem next in the queue and returns a boolean indicating whether it is successful or not.
@@ -253,9 +265,10 @@ class MusicPlayer {
         return sorted
     }
     
-    
-    
-    
+}
+
+extension Notification.Name {
+    static let MusicPlayerStateDidChange = Notification.Name("MusicPlayerStateDidChange")
 }
 
 

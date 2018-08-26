@@ -13,6 +13,7 @@
 		08266A8E20EB3BA4001871D5 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08266A8D20EB3BA4001871D5 /* MusicPlayer.swift */; };
 		08266A9120EB85D6001871D5 /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08266A9020EB85D6001871D5 /* QueueViewController.swift */; };
 		08816C6920E665830064EBE7 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08816C6820E665830064EBE7 /* List.swift */; };
+		0883475E2114617C00D0162F /* AlbumPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883475D2114617C00D0162F /* AlbumPlayerViewController.swift */; };
 		08A9A05F20E66F6F008FCD81 /* HomeScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08A9A05E20E66F6F008FCD81 /* HomeScene.storyboard */; };
 		08B6AC422102F9A30028A370 /* SettingsScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08B6AC412102F9A30028A370 /* SettingsScene.storyboard */; };
 		08B6AC442102FAA30028A370 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B6AC432102FAA30028A370 /* SettingsViewController.swift */; };
@@ -45,6 +46,7 @@
 		08266A8D20EB3BA4001871D5 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		08266A9020EB85D6001871D5 /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 		08816C6820E665830064EBE7 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		0883475D2114617C00D0162F /* AlbumPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPlayerViewController.swift; sourceTree = "<group>"; };
 		08A9A05E20E66F6F008FCD81 /* HomeScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScene.storyboard; sourceTree = "<group>"; };
 		08B6AC412102F9A30028A370 /* SettingsScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsScene.storyboard; sourceTree = "<group>"; };
 		08B6AC432102FAA30028A370 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				08D2DFC120FE16C6007A797C /* BaseMusicPlayerViewController.swift */,
 				08C3329C20DBCC4C004A1EBB /* ArtistViewController.swift */,
 				0805618B2101D3E100D07781 /* AlbumViewController.swift */,
+				0883475D2114617C00D0162F /* AlbumPlayerViewController.swift */,
 				08D2DFE520FE3120007A797C /* MusicViewController.swift */,
 				08C332AE20DCA653004A1EBB /* ThirdViewController.swift */,
 				08C332C720E39778004A1EBB /* PopUpViewController.swift */,
@@ -276,6 +279,7 @@
 				08D2DFC220FE16C6007A797C /* BaseMusicPlayerViewController.swift in Sources */,
 				08C332C320E1E2B6004A1EBB /* MusicData.swift in Sources */,
 				08C3329D20DBCC4C004A1EBB /* ArtistViewController.swift in Sources */,
+				0883475E2114617C00D0162F /* AlbumPlayerViewController.swift in Sources */,
 				0805618A2100C63E00D07781 /* BaseCollectionViewController.swift in Sources */,
 				08B6AC442102FAA30028A370 /* SettingsViewController.swift in Sources */,
 			);

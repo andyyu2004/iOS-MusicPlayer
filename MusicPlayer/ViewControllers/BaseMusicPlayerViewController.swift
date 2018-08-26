@@ -43,6 +43,8 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNowPlayingInfo), name: .MusicPlayerStateDidChange, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +79,7 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     /// Updates all the necessary data when the audio player changes state
-    func updateNowPlayingInfo() {
+    @objc func updateNowPlayingInfo() {
         setPlayPauseIcon()
         setToolbarVisibility()
         mp.audioPlayer?.delegate = self
@@ -98,7 +100,8 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
             MPMediaItemPropertyArtwork: artwork,
             MPNowPlayingInfoPropertyPlaybackRate: playbackRate
         ]
-    }
+    }	
+
     
     // Player Controlling Functions
     
@@ -114,13 +117,11 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
         } else {
             mp.play()
         }
-        updateNowPlayingInfo()
     }
     
     func setSong(song: MPMediaItem) {
         mp.setSong(song: song)
         mp.play()
-        updateNowPlayingInfo()
     }
     
     @objc func playNext() {
@@ -130,7 +131,6 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
             mp.stop()
             mp.currentItem = nil
         }
-        updateNowPlayingInfo()
     }
     
     @objc func playPrevious() {
@@ -141,7 +141,6 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
         } else {
             mp.stop()
         }
-        updateNowPlayingInfo()
     }
 
     @objc func setShuffleMode() {
@@ -158,8 +157,7 @@ class BaseMusicPlayerViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     @objc func changePlaybackPositionCommand(_ event: MPChangePlaybackPositionCommandEvent) {
-        mp.audioPlayer?.currentTime = event.positionTime
-        updateNowPlayingInfo()
+        mp.setPlaybackPosition(time: event.positionTime)
     }
     
     @objc func repeatTest() {

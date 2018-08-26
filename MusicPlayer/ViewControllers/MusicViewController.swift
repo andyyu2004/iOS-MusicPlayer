@@ -13,7 +13,7 @@ import AVFoundation
 class MusicViewController: BaseMusicPlayerViewController {
 
     //Outlets
-    @IBOutlet weak var toolbarSongDisplay: UILabel!
+    @IBOutlet weak var toolbarSongDisplay: UILabel!	
     @IBOutlet weak var tableView: UITableView!
     
     let refreshControl = UIRefreshControl()
@@ -35,16 +35,16 @@ class MusicViewController: BaseMusicPlayerViewController {
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressListener(_:)))
         tableView.addGestureRecognizer(longPress)
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(audioRouteChangedListener(_:)),
-            name: NSNotification.Name.AVAudioSessionRouteChange,
-            object: nil)
-        
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(shuffleAll(_:)), for: .valueChanged)
         refreshControl.tintColor = UIColor.white
         
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(audioRouteChangedListener(_:)),
+            name: .AVAudioSessionRouteChange,
+            object: nil)
     }
     
     // Functions
@@ -55,24 +55,6 @@ class MusicViewController: BaseMusicPlayerViewController {
         tableView.sectionIndexBackgroundColor = UIColor.darkGray
         
         //tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tableView.rowHeight*2, right: 0)
-    }
-    
-    /// Detects when headphones are pulled out and pauses playback
-    @objc dynamic private func audioRouteChangedListener(_ notification: NSNotification) {
-        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
-        
-        switch audioRouteChangeReason {
-        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
-            print("headphone plugged in")
-        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
-            print("headphones pulled out")
-            mp.pause()
-            DispatchQueue.main.async {
-                self.updateNowPlayingInfo()
-            }
-        default:
-            break
-        }
     }
     
     // Enable Lock Screen Controls
@@ -98,7 +80,6 @@ class MusicViewController: BaseMusicPlayerViewController {
     @objc func shuffleAll(_ refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
         mp.shuffleAll()
-        updateNowPlayingInfo()
     }
     
     /// Handles long press touch action on a table view cell
@@ -126,6 +107,22 @@ class MusicViewController: BaseMusicPlayerViewController {
         popUpVC.setData(data: songData)
     }
     
+    
+    /// Detects when headphones are pulled out and pauses playback
+    @objc dynamic private func audioRouteChangedListener(_ notification: NSNotification) {
+        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+        
+        switch audioRouteChangeReason {
+        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
+            print("headphone plugged in")
+        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
+            print("headphones pulled out")
+            mp.pause()
+        default:
+            break
+        }
+    }
+    
     // Updating Statuses
     
     override func updateNowPlayingInfo() {
@@ -142,8 +139,6 @@ class MusicViewController: BaseMusicPlayerViewController {
         cc.changeRepeatModeCommand.removeTarget(self, action: #selector(repeatTest))
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -182,7 +177,7 @@ extension MusicViewController:  UITableViewDelegate, UITableViewDataSource {
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return mp.sortedDictionaryKeys.map{String($0)}
+        return mp.sortedDictionaryKeys.map{ String($0) }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

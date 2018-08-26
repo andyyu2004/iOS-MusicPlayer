@@ -13,9 +13,14 @@ import MediaPlayer
 class ThirdViewController: BaseMusicPlayerViewController {
     
     @IBOutlet weak var AlbumArtwork: UIImageView!
+    @IBOutlet weak var slider: UISlider!
 
     @IBAction func QueueButton(_ sender: Any) {
         openQueueVC()
+    }
+    @IBAction func sliderMoved(_ sender: Any) {
+        //handleSlider(sender)
+        //sender.
     }
     
     override func viewDidLoad() {
@@ -26,6 +31,11 @@ class ThirdViewController: BaseMusicPlayerViewController {
         openQueueVC()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setData()
+    }
+    
     func openQueueVC() {
         let queueVC = UIStoryboard(name: "PlayerScene", bundle: nil).instantiateViewController(withIdentifier: "QueueViewController") as! QueueViewController
         self.addChildViewController(queueVC)
@@ -34,21 +44,16 @@ class ThirdViewController: BaseMusicPlayerViewController {
         queueVC.didMove(toParentViewController: self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        setData()
-    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    func setData(){
+    func setData() {
         if let data = mp.currentItem {
             AlbumArtwork.image = data.artwork?.image(at: CGSize(width: 1000, height: 1000)) ?? UIImage(named: "NoArtwork.jpeg")!
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

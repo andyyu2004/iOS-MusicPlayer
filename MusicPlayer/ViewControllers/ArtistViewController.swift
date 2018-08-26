@@ -33,7 +33,7 @@ class ArtistViewController: BaseCollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ArtistToAlbumSegue" {
             let albumScene = segue.destination as! AlbumViewController
-            albumScene.albums = sender as! [MPMediaItemCollection]
+            albumScene.artist = sender as! String
         }
     }
     
@@ -62,11 +62,6 @@ extension ArtistViewController: UICollectionViewDataSource  {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let artist = mp.artists[indexPath.row].representativeItem?.artist ?? ""
-        let query = MPMediaQuery.albums()
-        query.addFilterPredicate(MPMediaPropertyPredicate(value: artist, forProperty: MPMediaItemPropertyAlbumArtist, comparisonType: .equalTo))
-        let album = query.collections!
-        print(album[0].items[0].title!)
-        
-        performSegue(withIdentifier: "ArtistToAlbumSegue", sender: album)
+        performSegue(withIdentifier: "ArtistToAlbumSegue", sender: artist)
     }
 }
