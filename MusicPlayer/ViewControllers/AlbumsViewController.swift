@@ -1,5 +1,5 @@
 //
-//  AlbumViewController.swift
+//  AlbumsViewController.swift
 //  MusicPlayer
 //
 //  Created by Andy Yu on 20/07/18.
@@ -9,7 +9,7 @@
 import UIKit
 import MediaPlayer
 
-class AlbumViewController: BaseCollectionViewController {
+class AlbumsViewController: BaseCollectionViewController {
     
     var artist: String!
     var albums: [MPMediaItemCollection] = []
@@ -45,7 +45,7 @@ class AlbumViewController: BaseCollectionViewController {
     }
 }
 
-extension AlbumViewController: UICollectionViewDataSource {
+extension AlbumsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albums.count

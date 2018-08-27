@@ -9,7 +9,7 @@
 import UIKit
 import MediaPlayer
 
-class ArtistViewController: BaseCollectionViewController {
+class ArtistsViewController: BaseCollectionViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -32,9 +32,13 @@ class ArtistViewController: BaseCollectionViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ArtistToAlbumSegue" {
-            let albumScene = segue.destination as! AlbumViewController
+            let albumScene = segue.destination as! AlbumsViewController
             albumScene.artist = sender as! String
         }
+    }
+    
+    func segueToAlbums(by artist: String) {
+        performSegue(withIdentifier: "ArtistToAlbumSegue", sender: artist)
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,7 +49,7 @@ class ArtistViewController: BaseCollectionViewController {
 
 }
 
-extension ArtistViewController: UICollectionViewDataSource  {
+extension ArtistsViewController: UICollectionViewDataSource  {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mp.artists.count
@@ -62,6 +66,7 @@ extension ArtistViewController: UICollectionViewDataSource  {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let artist = mp.artists[indexPath.row].representativeItem?.artist ?? ""
-        performSegue(withIdentifier: "ArtistToAlbumSegue", sender: artist)
+        segueToAlbums(by: artist)
+    
     }
 }

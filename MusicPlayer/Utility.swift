@@ -19,7 +19,7 @@ class Utility {
         let artwork = mediaFile.artwork?.image(at: CGSize(width: 200, height: 200)) ?? UIImage(named: "NoArtwork.jpeg")!
         let comments = mediaFile.comments ?? ""
         let genre = mediaFile.genre ?? ""
-        let lyrics = mediaFile.lyrics ?? ""
+        let lyrics = mediaFile.lyrics ?? "No Lyrics Detected"
         let length = mediaFile.playbackDuration
         let trackNumber = mediaFile.albumTrackNumber
         let ID = mediaFile.persistentID

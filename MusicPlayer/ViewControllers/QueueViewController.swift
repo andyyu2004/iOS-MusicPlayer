@@ -83,17 +83,17 @@ class QueueViewController: BaseMusicPlayerViewController, UITableViewDelegate, U
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
+        case 0: // History
             return mp.songHistory.count
-        case 1:
+        case 1: // Current Item
             if mp.currentItem == nil {
                 return 0
             } else {
                 return 1
             }
-        case 2:
+        case 2: // Manual Queue
             return mp.manualQueue.count
-        default:
+        default: // Automatic Queue
             return mp.autoQueue.count
         }
     }

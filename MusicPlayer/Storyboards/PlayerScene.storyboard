@@ -34,7 +34,7 @@
                                 <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bZ4-rL-5GT">
-                                <rect key="frame" x="28" y="390" width="264" height="26"/>
+                                <rect key="frame" x="28" y="434" width="264" height="26"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Slider"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="5KD-Vj-5kO"/>
@@ -49,17 +49,55 @@
                                     <constraint firstAttribute="width" secondItem="a0f-kr-8MU" secondAttribute="height" multiplier="160:160" id="jkG-rJ-PDe"/>
                                 </constraints>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="No Lyrics" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-aq-2QY">
+                                <rect key="frame" x="0.0" y="29" width="320" height="320"/>
+                                <color key="backgroundColor" white="0.22112165180000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgx-n5-crb">
+                                <rect key="frame" x="140" y="366" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="playIcon"/>
+                                <connections>
+                                    <action selector="playPauseAction:" destination="wkx-zB-sk7" eventType="touchUpInside" id="RZW-Su-lca"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKh-H4-aQE">
+                                <rect key="frame" x="216" y="366" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <state key="normal" image="forwardIcon"/>
+                                <connections>
+                                    <action selector="forwardAction:" destination="wkx-zB-sk7" eventType="touchUpInside" id="kEv-Xf-n3T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vb-ua-U1E">
+                                <rect key="frame" x="60" y="366" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <state key="normal" image="reverseIcon"/>
+                                <connections>
+                                    <action selector="reverseAction:" destination="wkx-zB-sk7" eventType="touchUpInside" id="0Cc-Ei-tfc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="9yf-aq-2QY" firstAttribute="height" secondItem="a0f-kr-8MU" secondAttribute="height" id="5Lh-dF-QyC"/>
                             <constraint firstItem="a0f-kr-8MU" firstAttribute="leading" secondItem="Naf-kG-OIG" secondAttribute="leading" id="Nk4-yI-e9s"/>
                             <constraint firstItem="bZ4-rL-5GT" firstAttribute="leading" secondItem="Naf-kG-OIG" secondAttribute="leading" constant="30" id="QuB-7a-Qmh"/>
-                            <constraint firstItem="jCv-nB-TxB" firstAttribute="top" secondItem="bZ4-rL-5GT" secondAttribute="bottom" constant="60" id="TkJ-tY-sZk"/>
+                            <constraint firstItem="jCv-nB-TxB" firstAttribute="top" secondItem="bZ4-rL-5GT" secondAttribute="bottom" constant="16" id="TkJ-tY-sZk"/>
+                            <constraint firstItem="9yf-aq-2QY" firstAttribute="width" secondItem="a0f-kr-8MU" secondAttribute="width" id="WeK-na-375"/>
+                            <constraint firstItem="9yf-aq-2QY" firstAttribute="top" secondItem="a0f-kr-8MU" secondAttribute="top" id="X2H-hR-OH2"/>
                             <constraint firstItem="Naf-kG-OIG" firstAttribute="trailing" secondItem="bZ4-rL-5GT" secondAttribute="trailing" constant="30" id="dho-aJ-vgB"/>
                             <constraint firstItem="a0f-kr-8MU" firstAttribute="centerX" secondItem="Naf-kG-OIG" secondAttribute="centerX" id="ePD-Nf-BuJ"/>
                             <constraint firstItem="jCv-nB-TxB" firstAttribute="trailing" secondItem="Naf-kG-OIG" secondAttribute="trailing" id="ect-G1-fsh"/>
                             <constraint firstItem="a0f-kr-8MU" firstAttribute="top" secondItem="Naf-kG-OIG" secondAttribute="top" constant="9" id="mwa-k0-tkE"/>
                             <constraint firstItem="Naf-kG-OIG" firstAttribute="trailing" secondItem="a0f-kr-8MU" secondAttribute="trailing" id="pfH-UF-6Ln"/>
+                            <constraint firstItem="9yf-aq-2QY" firstAttribute="leading" secondItem="a0f-kr-8MU" secondAttribute="leading" id="v0c-r0-Mbt"/>
                             <constraint firstItem="jCv-nB-TxB" firstAttribute="bottom" secondItem="Naf-kG-OIG" secondAttribute="bottom" id="wIc-X5-Ux8"/>
                             <constraint firstItem="jCv-nB-TxB" firstAttribute="leading" secondItem="Naf-kG-OIG" secondAttribute="leading" id="zrg-ed-qBW"/>
                         </constraints>
@@ -68,7 +106,9 @@
                     <tabBarItem key="tabBarItem" title="Player" image="playIcon" id="X2t-4t-vWA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="AlbumArtwork" destination="a0f-kr-8MU" id="iRJ-Ks-GXx"/>
+                        <outlet property="albumArtwork" destination="a0f-kr-8MU" id="iRJ-Ks-GXx"/>
+                        <outlet property="lyricsView" destination="9yf-aq-2QY" id="bRx-qt-ZPP"/>
+                        <outlet property="playPauseBigButton" destination="Jgx-n5-crb" id="YL5-8N-3e3"/>
                         <outlet property="slider" destination="bZ4-rL-5GT" id="ipG-55-dcR"/>
                     </connections>
                 </viewController>

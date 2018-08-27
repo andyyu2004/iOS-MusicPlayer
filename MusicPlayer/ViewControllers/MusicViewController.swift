@@ -16,6 +16,8 @@ class MusicViewController: BaseMusicPlayerViewController {
     @IBOutlet weak var toolbarSongDisplay: UILabel!	
     @IBOutlet weak var tableView: UITableView!
     
+
+    
     let refreshControl = UIRefreshControl()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -47,6 +49,11 @@ class MusicViewController: BaseMusicPlayerViewController {
             object: nil)
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // Functions
     
     func configureVisualSettings() {
@@ -56,7 +63,7 @@ class MusicViewController: BaseMusicPlayerViewController {
         
         //tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tableView.rowHeight*2, right: 0)
     }
-    
+
     // Enable Lock Screen Controls
     
     func enableCommandCenter() {

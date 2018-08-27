@@ -14,7 +14,7 @@
         <!--Artists-->
         <scene sceneID="OPQ-Rx-4KR">
             <objects>
-                <viewController storyboardIdentifier="HomeScene" id="jTE-lG-vYD" customClass="ArtistViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeScene" id="jTE-lG-vYD" customClass="ArtistsViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QKL-IG-qJP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,10 +91,10 @@
             </objects>
             <point key="canvasLocation" x="1657.5" y="-307.3943661971831"/>
         </scene>
-        <!--Album View Controller-->
+        <!--Albums View Controller-->
         <scene sceneID="jZh-eN-EWb">
             <objects>
-                <viewController storyboardIdentifier="AlbumScene" id="o6w-fN-2Jm" customClass="AlbumViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbumsScene" id="o6w-fN-2Jm" customClass="AlbumsViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wLl-DB-CLP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,7 +165,7 @@
         <!--Album Player View Controller-->
         <scene sceneID="UOe-hr-eNb">
             <objects>
-                <viewController id="iJS-UB-EcN" customClass="AlbumPlayerViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbumScene" id="iJS-UB-EcN" customClass="AlbumPlayerViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7N6-yI-GMc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

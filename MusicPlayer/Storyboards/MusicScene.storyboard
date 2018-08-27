@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jRq-OO-y3s">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -36,11 +36,11 @@
             <objects>
                 <viewController title="MusicStoryboard" id="bhk-em-asW" customClass="MusicViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kfY-z2-Y5s">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GLu-iQ-4zX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -103,7 +103,7 @@
                                 </prototypes>
                             </tableView>
                             <toolbar autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xW0-vE-HvZ">
-                                <rect key="frame" x="0.0" y="387" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="475" width="320" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="VAb-XO-eO2"/>
                                 </constraints>
@@ -129,7 +129,7 @@
                                 <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvo-06-Pc0">
-                                <rect key="frame" x="16" y="392" width="145" height="33"/>
+                                <rect key="frame" x="16" y="480" width="145" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="4Kq-w7-5NI"/>
                                 </constraints>
@@ -174,7 +174,7 @@
             <objects>
                 <viewController storyboardIdentifier="PopUpVC" id="NKJ-od-XRs" customClass="PopUpViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mU4-WC-cJT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnj-cV-Dvd">
@@ -186,12 +186,15 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QT-G9-jIe">
-                                <rect key="frame" x="34" y="60" width="252" height="380"/>
+                                <rect key="frame" x="34" y="60" width="252" height="468"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mea-QR-3VY">
-                                        <rect key="frame" x="99" y="8" width="153" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mea-QR-3VY">
+                                        <rect key="frame" x="99" y="8" width="153" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="jny-h8-rPE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sB6-z2-bfu">
@@ -201,73 +204,81 @@
                                             <constraint firstAttribute="width" secondItem="sB6-z2-bfu" secondAttribute="height" multiplier="1:1" id="wEi-Ol-iC5"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVU-xe-wcM">
-                                        <rect key="frame" x="99" y="37.5" width="153" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="17" id="WvO-gv-Cev"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBe-Xm-1ue">
-                                        <rect key="frame" x="99" y="63" width="155" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBe-Xm-1ue">
+                                        <rect key="frame" x="99" y="72" width="155" height="16"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ATl-Xj-uBE">
-                                        <rect key="frame" x="59.5" y="80" width="133" height="292"/>
+                                        <rect key="frame" x="70" y="155" width="112" height="231"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3ap-aR-xUE">
-                                                <rect key="frame" x="0.0" y="0.0" width="133" height="292"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="112" height="231"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ou-5d-xme">
-                                                        <rect key="frame" x="0.0" y="0.0" width="133" height="38"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <state key="normal" title="Play Next"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="112" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Play Next">
+                                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="PlayNext:" destination="NKJ-od-XRs" eventType="touchUpInside" id="7uA-0K-cid"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF8-29-J3T">
-                                                        <rect key="frame" x="0.0" y="38" width="133" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Add To Queue"/>
+                                                        <rect key="frame" x="0.0" y="33" width="112" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Add To Queue">
+                                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="AddToQueue:" destination="NKJ-od-XRs" eventType="touchUpInside" id="AzY-R8-Xph"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNF-E8-aWM">
-                                                        <rect key="frame" x="0.0" y="74" width="133" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Goto Album"/>
+                                                        <rect key="frame" x="0.0" y="66" width="112" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Goto Album">
+                                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="GotoAlbum:" destination="NKJ-od-XRs" eventType="touchUpInside" id="AFM-b9-uv0"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xE-GK-ung">
-                                                        <rect key="frame" x="0.0" y="110" width="133" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Goto Artist"/>
+                                                        <rect key="frame" x="0.0" y="99" width="112" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Goto Artist">
+                                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="GotoArtist:" destination="NKJ-od-XRs" eventType="touchUpInside" id="abB-0v-u1A"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Bb-QD-jgg">
-                                                        <rect key="frame" x="0.0" y="146" width="133" height="38"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <state key="normal" title="Add To Playlist"/>
+                                                        <rect key="frame" x="0.0" y="132" width="112" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Add To Playlist">
+                                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ue8-P9-5ye">
-                                                        <rect key="frame" x="0.0" y="184" width="133" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Properties"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rg-et-oop">
-                                                        <rect key="frame" x="0.0" y="220" width="133" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Lyrics"/>
+                                                        <rect key="frame" x="0.0" y="165" width="112" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Properties">
+                                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ViewProperties:" destination="NKJ-od-XRs" eventType="touchUpInside" id="Vqd-vS-vG0"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2F-PA-WKk">
-                                                        <rect key="frame" x="0.0" y="256" width="133" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Cancel"/>
+                                                        <rect key="frame" x="0.0" y="198" width="112" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Cancel">
+                                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="cancelPopup:" destination="NKJ-od-XRs" eventType="touchUpInside" id="ebt-CN-Wrc"/>
                                                         </connections>
@@ -281,42 +292,65 @@
                                             <constraint firstItem="3ap-aR-xUE" firstAttribute="leading" secondItem="ATl-Xj-uBE" secondAttribute="leading" id="o9P-Vp-o4y"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVU-xe-wcM">
+                                        <rect key="frame" x="99" y="54" width="153" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="WvO-gv-Cev"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Properties: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uOv-AV-fr7">
+                                        <rect key="frame" x="-6" y="-7" width="265" height="481"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Mea-QR-3VY" secondAttribute="trailing" id="0Pb-S0-c2b"/>
+                                    <constraint firstItem="Mea-QR-3VY" firstAttribute="leading" secondItem="cVU-xe-wcM" secondAttribute="leading" id="2Hr-UP-P6z"/>
                                     <constraint firstItem="ATl-Xj-uBE" firstAttribute="centerX" secondItem="8QT-G9-jIe" secondAttribute="centerX" id="3Gg-qT-hpm"/>
-                                    <constraint firstItem="Mea-QR-3VY" firstAttribute="leading" secondItem="sB6-z2-bfu" secondAttribute="trailing" constant="8" id="B3F-FM-UCE"/>
-                                    <constraint firstItem="Mea-QR-3VY" firstAttribute="top" secondItem="8QT-G9-jIe" secondAttribute="top" constant="8" id="BkZ-Wq-cxf"/>
+                                    <constraint firstItem="gBe-Xm-1ue" firstAttribute="bottom" secondItem="sB6-z2-bfu" secondAttribute="bottom" id="AAa-Me-mwa"/>
                                     <constraint firstItem="sB6-z2-bfu" firstAttribute="top" secondItem="8QT-G9-jIe" secondAttribute="top" constant="8" id="Muk-t8-rEb"/>
+                                    <constraint firstItem="cVU-xe-wcM" firstAttribute="top" secondItem="Mea-QR-3VY" secondAttribute="bottom" constant="1" id="UBE-gQ-C4A"/>
                                     <constraint firstItem="cVU-xe-wcM" firstAttribute="leading" secondItem="sB6-z2-bfu" secondAttribute="trailing" constant="8" id="XVG-t5-Jx5"/>
                                     <constraint firstItem="sB6-z2-bfu" firstAttribute="leading" secondItem="8QT-G9-jIe" secondAttribute="leading" constant="11" id="YhA-6C-kkn"/>
                                     <constraint firstItem="ATl-Xj-uBE" firstAttribute="centerY" secondItem="8QT-G9-jIe" secondAttribute="centerY" constant="36" id="jRK-az-QyE"/>
-                                    <constraint firstItem="cVU-xe-wcM" firstAttribute="top" secondItem="Mea-QR-3VY" secondAttribute="bottom" constant="8.5" id="oH2-g7-dHR"/>
                                     <constraint firstAttribute="trailing" secondItem="cVU-xe-wcM" secondAttribute="trailing" id="ocR-ib-vkD"/>
+                                    <constraint firstItem="Mea-QR-3VY" firstAttribute="top" secondItem="sB6-z2-bfu" secondAttribute="top" id="pTt-sv-75R"/>
+                                    <constraint firstItem="Mea-QR-3VY" firstAttribute="leading" secondItem="gBe-Xm-1ue" secondAttribute="leading" id="pjq-MX-lco"/>
+                                    <constraint firstAttribute="trailing" secondItem="gBe-Xm-1ue" secondAttribute="trailing" constant="-2" id="uBo-aL-jyF"/>
+                                    <constraint firstItem="Mea-QR-3VY" firstAttribute="trailing" secondItem="cVU-xe-wcM" secondAttribute="trailing" id="xdL-Pn-HhC"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="vTQ-gs-PsL" firstAttribute="bottom" secondItem="uOv-AV-fr7" secondAttribute="bottom" constant="34" id="7kl-Cd-0vR"/>
+                            <constraint firstItem="vTQ-gs-PsL" firstAttribute="trailing" secondItem="uOv-AV-fr7" secondAttribute="trailing" constant="27" id="9a0-41-dXr"/>
                             <constraint firstItem="8QT-G9-jIe" firstAttribute="top" secondItem="vTQ-gs-PsL" secondAttribute="top" constant="40" id="ZQQ-Bt-T9F"/>
                             <constraint firstItem="vTQ-gs-PsL" firstAttribute="trailing" secondItem="8QT-G9-jIe" secondAttribute="trailing" constant="34" id="eav-y9-TNq"/>
                             <constraint firstItem="vTQ-gs-PsL" firstAttribute="bottom" secondItem="8QT-G9-jIe" secondAttribute="bottom" constant="40" id="ff4-LK-dt1"/>
                             <constraint firstItem="8QT-G9-jIe" firstAttribute="leading" secondItem="vTQ-gs-PsL" secondAttribute="leading" constant="34" id="gBp-kX-spt"/>
+                            <constraint firstItem="uOv-AV-fr7" firstAttribute="top" secondItem="vTQ-gs-PsL" secondAttribute="top" constant="33" id="ktY-ZS-lVi"/>
+                            <constraint firstItem="uOv-AV-fr7" firstAttribute="leading" secondItem="vTQ-gs-PsL" secondAttribute="leading" constant="28" id="nct-Oj-3hk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vTQ-gs-PsL"/>
                     </view>
                     <connections>
-                        <outlet property="AddToQueue" destination="AF8-29-J3T" id="qRP-Ti-eV5"/>
                         <outlet property="albumNameLabel" destination="cVU-xe-wcM" id="ZDD-00-IwW"/>
                         <outlet property="artistNameLabel" destination="gBe-Xm-1ue" id="Ch6-vn-gkO"/>
                         <outlet property="artworkView" destination="sB6-z2-bfu" id="LAF-h9-5vu"/>
+                        <outlet property="propertiesTextView" destination="uOv-AV-fr7" id="Rxc-kZ-COs"/>
                         <outlet property="songNameLabel" destination="Mea-QR-3VY" id="sPH-l5-z3B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jV-En-w0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673" y="357"/>
+            <point key="canvasLocation" x="1672.5" y="355.98591549295776"/>
         </scene>
     </scenes>
     <resources>
