@@ -12,6 +12,6 @@ Pull down for shuffle all command
 # Queue Control
 ![img_4150](https://user-images.githubusercontent.com/31381631/45133914-f6274600-b1eb-11e8-970a-5cecccb7da9d.PNG)
 
-Reordering
-Reshuffling 
-Skipping
+- Reordering
+- Reshuffling 
+- Skipping
